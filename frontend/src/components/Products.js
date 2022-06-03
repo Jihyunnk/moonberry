@@ -12,10 +12,14 @@ function AllProducts() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="row center products">
       {products.map((product) => (
-        <div key={product._id}>
-          <p>{product.name}</p>
+        <div key={product._id} className="card">
+          <img className="medium" src={product.image} alt={product.name} />
+          <div className="card-body">
+            <p>{product.name}</p>
+            <p>${product.price.toFixed(2)}</p>
+          </div>
         </div>
       ))}
     </div>

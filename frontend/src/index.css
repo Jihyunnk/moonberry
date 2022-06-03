@@ -39,7 +39,7 @@ main {
   grid-area: main;
 }
 
-/********************** Common **********************/
+/********************** General **********************/
 h1 {
   font-size: 1.8rem;
   padding: 1rem 0;
@@ -58,6 +58,18 @@ a:hover {
   color: #424040;
 }
 
+/********************** Common **********************/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row.center {
+  justify-content: center;
+}
+
 /********************** Header **********************/
 header a {
   color: #000000;
@@ -69,25 +81,27 @@ header a {
   font-weight: bold;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+/********************** Image **********************/
+img {
+  border-radius: 0.5rem;
 }
 
-/********************** Home **********************/
-.home {
-  background-image: url('https://images.unsplash.com/photo-1623660045892-c9271bb7068c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1548&q=80');
-  height: 100vh;
-  display: flex;
-  background-size: cover;
-  background-position: center;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: -80px;
-  z-index: -1;
+img.medium {
+  width: 170px;
+  height: 145px;
+}
+
+/********************** Card **********************/
+.card {
+  margin: 1rem 2rem;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-body > * {
+  margin-bottom: 0.5rem;
 }
 
 /********************** Form **********************/
@@ -134,4 +148,23 @@ button.primary:hover {
   color: white;
   width: 150px;
   height: 30px;
+}
+
+/********************** Home **********************/
+.home {
+  background-image: url('https://images.unsplash.com/photo-1623660045892-c9271bb7068c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1548&q=80');
+  height: 100vh;
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -80px;
+  z-index: -1;
+}
+
+/********************** Products **********************/
+.products {
+  margin: 3rem 10rem;
 }
