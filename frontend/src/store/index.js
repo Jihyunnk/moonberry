@@ -1,5 +1,6 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
+import { productsReducer } from './products';
 import { sessionReducer } from './session';
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
 
 const reducer = combineReducers({
   session: sessionReducer,
+  allProducts: productsReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
