@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  height: 100vh;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#root {
+  height: 100%;
+}
+
+/********************** Layout **********************/
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'main';
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 5rem;
+  height: 100%;
+}
+
+header {
+  grid-area: header;
+  background-color: transparent;
+  z-index: 1;
+  margin-top: 1.2rem;
+}
+
+main {
+  grid-area: main;
+}
+
+/********************** Common **********************/
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+p {
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  color: #424040;
+}
+
+/********************** Header **********************/
+header a {
+  color: #000000;
+  padding: 1rem;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/********************** Home **********************/
+.home {
+  background-image: url('https://images.unsplash.com/photo-1623660045892-c9271bb7068c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1548&q=80');
+  height: 100vh;
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -80px;
+  z-index: -1;
+}
+
+/********************** Form **********************/
+.form {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  margin: 1rem 0;
+  display: block;
+}
+
+.form input {
+  outline: none;
+  background: none;
+  font-size: 18px;
+  color: #555;
+  padding: 20px 10px 20px 5px;
+  border: 0.1rem #a4a4a4 solid;
+  border-radius: 0.5rem;
+}
+
+button.primary {
+  align-self: center;
+  outline: none;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  border-radius: 0.5rem;
+  color: black;
+  text-align: center;
+  background-color: transparent;
+  transition: 0.5s;
+}
+
+button.primary:hover {
+  background: #3f3f3f;
+  color: white;
+  width: 150px;
+  height: 30px;
+}
