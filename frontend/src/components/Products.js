@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { setProducts } from '../store/products';
 
 function AllProducts() {
@@ -15,9 +16,13 @@ function AllProducts() {
     <div className="row center products">
       {products.map((product) => (
         <div key={product._id} className="card">
-          <img className="medium" src={product.image} alt={product.name} />
+          <Link to={`/products/${product._id}`}>
+            <img className="medium" src={product.image} alt={product.name} />
+          </Link>
           <div className="card-body">
-            <p>{product.name}</p>
+            <Link to={`/products/${product._id}`}>
+              <p>{product.name}</p>
+            </Link>
             <p>${product.price.toFixed(2)}</p>
           </div>
         </div>

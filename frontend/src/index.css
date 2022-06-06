@@ -197,3 +197,8 @@ button.primary {
 .products {
   margin: 3rem 10rem;
 }
+
+/* Single Product */
+.back {
+  padding: 1rem;
+}

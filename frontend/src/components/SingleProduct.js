@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getProduct } from '../store/singleProduct';
 
 function SingleProduct() {
@@ -19,6 +19,9 @@ function SingleProduct() {
 
   return (
     <div>
+      <Link to="/products" className="back">
+        BACK
+      </Link>
       <div className="row">
         <div className="col-1">
           <img src={product.image} alt={product.name} />
