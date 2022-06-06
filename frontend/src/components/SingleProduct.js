@@ -19,12 +19,12 @@ function SingleProduct() {
 
   return (
     <div>
-      <div>
-        <div>
+      <div className="row">
+        <div className="col-1">
           <img src={product.image} alt={product.name} />
         </div>
-        <div>
-          <div>
+        <div className="col-1">
+          <div className="card card-body">
             <ul>
               <li>
                 <h1>{product.name}</h1>
@@ -35,11 +35,11 @@ function SingleProduct() {
             </ul>
           </div>
         </div>
-        <div>
-          <div>
+        <div className="col-1">
+          <div className="card card-body">
             <ul>
               <li>
-                <div>
+                <div className="row">
                   <div>Price</div>
                   <div>${product.price}</div>
                 </div>
@@ -47,7 +47,7 @@ function SingleProduct() {
               {product.inventory && (
                 <>
                   <li>
-                    <div>
+                    <div className="row">
                       <div>Quantity</div>
                       <div>
                         <select

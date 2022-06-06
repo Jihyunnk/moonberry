@@ -58,6 +58,16 @@ a:hover {
   color: #424040;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+li {
+  margin-top: 1rem;
+}
+
 /********************** Common **********************/
 .row {
   display: flex;
@@ -68,6 +78,10 @@ a:hover {
 
 .row.center {
   justify-content: center;
+}
+
+.col-1 {
+  flex: 1 1 25rem;
 }
 
 /********************** Header **********************/
