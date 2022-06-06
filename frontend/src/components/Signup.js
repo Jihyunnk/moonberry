@@ -85,7 +85,7 @@ function Signup() {
         </div>
         <div>
           <label />
-          <button className="primary" type="submit">
+          <button className="session" type="submit">
             Sign Up
           </button>
         </div>

@@ -59,7 +59,7 @@ function Login() {
         </div>
         <div>
           <label />
-          <button className="primary" type="submit">
+          <button className="session" type="submit">
             Login
           </button>
         </div>
