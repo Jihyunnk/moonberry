@@ -68,6 +68,12 @@ li {
   margin-top: 1rem;
 }
 
+select {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
 /********************** Common **********************/
 .row {
   display: flex;
@@ -144,7 +150,7 @@ img.medium {
   border-radius: 0.5rem;
 }
 
-button.primary {
+button.session {
   align-self: center;
   outline: none;
   cursor: pointer;
@@ -157,11 +163,20 @@ button.primary {
   transition: 0.5s;
 }
 
-button.primary:hover {
+button.session:hover {
   background: #3f3f3f;
   color: white;
   width: 150px;
   height: 30px;
+}
+
+button.primary {
+  cursor: pointer;
+  background-color: #f4d0a56b;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem #a4a4a4 solid;
+  width: 100%;
 }
 
 /********************** Home **********************/

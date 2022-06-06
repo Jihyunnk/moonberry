@@ -64,7 +64,7 @@ function SingleProduct() {
                     </div>
                   </li>
                   <li>
-                    <button>ADD TO CART</button>
+                    <button className="primary">ADD TO CART</button>
                   </li>
                 </>
               )}
