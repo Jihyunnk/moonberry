@@ -24,7 +24,7 @@ function SingleProduct() {
       </Link>
       <div className="row">
         <div className="col-1">
-          <img src={product.image} alt={product.name} />
+          <img className="large" src={product.image} alt={product.name} />
         </div>
         <div className="col-1">
           <div className="card card-body">
