@@ -262,8 +262,12 @@ button.shop {
   text-align: center;
 }
 
-.item-content {
+.item-wrapper {
   padding: 0;
+}
+
+.item-content {
+  justify-content: center;
 }
 
 .item-details {

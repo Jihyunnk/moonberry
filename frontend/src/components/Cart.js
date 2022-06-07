@@ -68,11 +68,11 @@ function Cart() {
       ) : (
         <div className="row">
           <div className="col-2">
-            <div className="card card-body item-content">
+            <div className="card card-body item-wrapper">
               <ul>
                 {cartItems.map((item) => (
                   <li key={item.product}>
-                    <div className="row">
+                    <div className="row item-content">
                       <div>
                         <img
                           src={item.image}
