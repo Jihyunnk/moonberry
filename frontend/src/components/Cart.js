@@ -14,6 +14,14 @@ function Cart() {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
+  const toPrice = (num) => Number(num.toFixed(2));
+  const itemsPrice = toPrice(
+    cartItems.reduce((a, c) => a + c.price * c.quantity, 0)
+  );
+  const shippingPrice = itemsPrice > 100 ? toPrice(0) : 14.25;
+  const taxPrice = toPrice(0.15 * itemsPrice);
+  const totalPrice = itemsPrice + shippingPrice + taxPrice;
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (productId) {
@@ -60,6 +68,46 @@ function Cart() {
                 </div>
               </li>
             ))}
+          </ul>
+        </div>
+        <div className="card card-body">
+          <ul>
+            <li>
+              <p>Order Summary</p>
+            </li>
+            <li>
+              <div className="row">
+                <div>Subtotal</div>
+                <div>${itemsPrice.toFixed(2)}</div>
+              </div>
+            </li>
+            <li>
+              <div className="row">
+                <div>Estimated Shipping</div>
+                <div>${shippingPrice.toFixed(2)}</div>
+              </div>
+            </li>
+            <li>
+              <div className="row">
+                <div>Estimated Tax</div>
+                <div>${taxPrice.toFixed(2)}</div>
+              </div>
+            </li>
+            <li>
+              <div className="row">
+                <div>Total</div>
+                <div>${totalPrice.toFixed(2)}</div>
+              </div>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="primary"
+                disabled={cartItems.length === 0}
+              >
+                Proceed to checkout
+              </button>
+            </li>
           </ul>
         </div>
       </div>
