@@ -49,7 +49,11 @@ function SingleProduct() {
               <li>
                 <div className="row">
                   <div>Price</div>
-                  <div>${product.price.toFixed(2)}</div>
+                  {!product.price ? (
+                    <div>${product.price}</div>
+                  ) : (
+                    <div>${product.price.toFixed(2)}</div>
+                  )}
                 </div>
               </li>
               {product.inventory && (
