@@ -187,13 +187,18 @@ button.session:hover {
   height: 30px;
 }
 
-button.primary {
+button.primary,
+button.checkout {
   cursor: pointer;
   background-color: #f4d0a56b;
   padding: 1rem;
   border-radius: 0.5rem;
   border: 0.1rem #a4a4a4 solid;
   width: 100%;
+}
+
+button.checkout {
+  font-size: 1rem;
 }
 
 button.remove,

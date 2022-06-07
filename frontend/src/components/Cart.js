@@ -153,7 +153,7 @@ function Cart() {
                   <button
                     type="button"
                     onClick={checkout}
-                    className="primary"
+                    className="checkout"
                     disabled={cartItems.length === 0}
                   >
                     Proceed to checkout
