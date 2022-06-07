@@ -90,6 +90,10 @@ select {
   flex: 1 1 25rem;
 }
 
+.col-2 {
+  flex: 2 1 50rem;
+}
+
 .min-25 {
   min-width: 25rem;
 }
@@ -229,4 +233,22 @@ button.primary {
 
 .item-details {
   gap: 1.65rem;
+}
+
+.order-summary-wrapper {
+  align-self: stretch;
+  margin-top: 2rem;
+}
+
+.order-summary {
+  border: 0.1rem #c9c7c7 solid;
+  border-radius: 0.5rem;
+}
+
+.order-summary p {
+  font-size: 1.6rem;
+}
+
+.total {
+  font-size: 1.4rem;
 }
