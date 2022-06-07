@@ -33,7 +33,7 @@ function Cart() {
               <li key={item.product}>
                 <div className="row">
                   <div>
-                    <img src={item.image} alt={item.name} />
+                    <img src={item.image} alt={item.name} className="small" />
                   </div>
                   <div className="min-25">
                     <Link to={`/products/${item.product}`}>{item.name}</Link>

@@ -110,6 +110,11 @@ img {
   border-radius: 0.5rem;
 }
 
+img.small {
+  max-width: 15rem;
+  width: 100%;
+}
+
 img.medium {
   width: 170px;
   height: 145px;
@@ -206,12 +211,12 @@ button.primary {
   margin: 3rem 10rem;
 }
 
-/* Single Product */
+/********************** Single Product **********************/
 .back {
   padding: 1rem;
 }
 
-/********************** Products **********************/
+/********************** Cart **********************/
 .cart-header {
   margin-bottom: 0;
   padding-bottom: 0;
