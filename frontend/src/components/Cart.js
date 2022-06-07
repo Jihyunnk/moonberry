@@ -59,6 +59,11 @@ function Cart() {
             <h2>Your cart is empty!</h2>
             <p>Looks like you haven't added anything to your cart yet</p>
           </div>
+          <div>
+            <button className="shop" onClick={() => navigate('/products')}>
+              Continue shopping
+            </button>
+          </div>
         </div>
       ) : (
         <div className="row">
