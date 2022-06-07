@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useParams } from 'react-router-dom';
-import { addToCart } from '../store/cart';
+import { addToCart, removeFromCart } from '../store/cart';
 
 function Cart() {
   const params = useParams();
@@ -28,6 +28,10 @@ function Cart() {
       dispatch(addToCart(productId, quantity));
     }
   }, [dispatch, productId, quantity]);
+
+  const handleClick = (id) => {
+    dispatch(removeFromCart(id));
+  };
 
   return (
     <div>
@@ -65,6 +69,14 @@ function Cart() {
                         </select>
                       </div>
                       <div>${item.price.toFixed(2)}</div>
+                      <div>
+                        <button
+                          type="button"
+                          onClick={() => handleClick(item.product)}
+                        >
+                          Remove
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </li>
