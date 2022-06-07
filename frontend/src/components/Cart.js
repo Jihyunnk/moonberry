@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { addToCart } from '../store/cart';
 
 function Cart() {
@@ -24,22 +24,26 @@ function Cart() {
   return (
     <div>
       <div>
-        <h1>YOUR CART</h1>
+        <h1 className="cart-header">YOUR CART</h1>
       </div>
       <div>
-        <ul>
-          {cartItems.map((item) => (
-            <li key={item.product}>
-              <div>
-                <div>
-                  <img src={item.image} alt={item.name} />
+        <div className="card card-body">
+          <ul>
+            {cartItems.map((item) => (
+              <li key={item.product}>
+                <div className="row">
+                  <div>
+                    <img src={item.image} alt={item.name} />
+                  </div>
+                  <div className="min-25">
+                    <Link to={`/products/${item.product}`}>{item.name}</Link>
+                  </div>
+                  <div>${item.price.toFixed(2)}</div>
                 </div>
-                <div>{item.name}</div>
-                <div>${item.price.toFixed(2)}</div>
-              </div>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

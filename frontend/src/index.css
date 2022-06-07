@@ -90,6 +90,10 @@ select {
   flex: 1 1 25rem;
 }
 
+.min-25 {
+  min-width: 25rem;
+}
+
 /********************** Header **********************/
 header a {
   color: #000000;
@@ -205,4 +209,11 @@ button.primary {
 /* Single Product */
 .back {
   padding: 1rem;
+}
+
+/********************** Products **********************/
+.cart-header {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  text-align: center;
 }
