@@ -16,10 +16,15 @@ const _addToCart = (data, quantity) => {
   };
 };
 
-export const addToCart = (productId, quantity) => async (dispatch) => {
-  const { data } = await Axios.get(`/api/products/${productId}`);
-  dispatch(_addToCart(data, quantity));
-};
+export const addToCart =
+  (productId, quantity) => async (dispatch, getState) => {
+    const { data } = await Axios.get(`/api/products/${productId}`);
+    dispatch(_addToCart(data, quantity));
+    localStorage.setItem(
+      'cartItems',
+      JSON.stringify(getState().cart.cartItems)
+    );
+  };
 
 const initialState = { cartItems: [] };
 
