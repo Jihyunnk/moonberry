@@ -222,3 +222,11 @@ button.primary {
   padding-bottom: 0;
   text-align: center;
 }
+
+.item-content {
+  padding: 0;
+}
+
+.item-details {
+  gap: 1.65rem;
+}

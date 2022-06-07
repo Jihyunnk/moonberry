@@ -27,7 +27,7 @@ function Cart() {
         <h1 className="cart-header">YOUR CART</h1>
       </div>
       <div>
-        <div className="card card-body">
+        <div className="card card-body item-content">
           <ul>
             {cartItems.map((item) => (
               <li key={item.product}>
@@ -38,7 +38,7 @@ function Cart() {
                   <div className="min-25">
                     <Link to={`/products/${item.product}`}>{item.name}</Link>
                   </div>
-                  <div className="row">
+                  <div className="row item-details">
                     <div>
                       <select
                         value={item.quantity}
