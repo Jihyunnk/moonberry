@@ -73,6 +73,7 @@ function Cart() {
                         <button
                           type="button"
                           onClick={() => handleClick(item.product)}
+                          className="remove"
                         >
                           Remove
                         </button>

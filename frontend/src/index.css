@@ -196,6 +196,15 @@ button.primary {
   width: 100%;
 }
 
+button.remove {
+  cursor: pointer;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  padding: 0.75rem;
+  background-color: #f4d0a56b;
+  border: none;
+}
+
 /********************** Home **********************/
 .home {
   background-image: url('https://images.unsplash.com/photo-1623660045892-c9271bb7068c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1548&q=80');
