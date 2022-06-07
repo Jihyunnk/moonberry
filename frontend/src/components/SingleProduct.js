@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getProduct } from '../store/singleProduct';
 
 function SingleProduct() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const params = useParams();
   const { id: productId } = params;
@@ -16,6 +17,10 @@ function SingleProduct() {
   useEffect(() => {
     dispatch(getProduct(productId));
   }, [dispatch, productId]);
+
+  const handleClick = () => {
+    navigate(`/cart/${productId}?quantity=${quantity}`);
+  };
 
   return (
     <div>
@@ -67,7 +72,9 @@ function SingleProduct() {
                     </div>
                   </li>
                   <li>
-                    <button className="primary">ADD TO CART</button>
+                    <button className="primary" onClick={handleClick}>
+                      ADD TO CART
+                    </button>
                   </li>
                 </>
               )}

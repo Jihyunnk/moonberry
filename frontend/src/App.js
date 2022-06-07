@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Cart from './components/Cart';
 import Home from './components/Home';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
@@ -20,6 +21,8 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<SingleProduct />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart/:id" element={<Cart />} />
           </Routes>
         </main>
       </div>
