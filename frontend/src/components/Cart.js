@@ -51,7 +51,15 @@ function Cart() {
         <h1 className="cart-header">YOUR CART</h1>
       </div>
       {cartItems.length === 0 ? (
-        <div>EMPTY CART</div>
+        <div className="card card-body cart-wrapper">
+          <div className="empty-cart">
+            <img src="/empty-cart.webp" alt="empty-cart" />
+          </div>
+          <div className="cart-message">
+            <h2>Your cart is empty!</h2>
+            <p>Looks like you haven't added anything to your cart yet</p>
+          </div>
+        </div>
       ) : (
         <div className="row">
           <div className="col-2">
