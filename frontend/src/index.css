@@ -196,13 +196,18 @@ button.primary {
   width: 100%;
 }
 
-button.remove {
+button.remove,
+button.shop {
   cursor: pointer;
   border-radius: 0.3rem;
   font-size: 1rem;
   padding: 0.75rem;
   background-color: #f4d0a56b;
   border: none;
+}
+
+button.shop {
+  background-color: #cfcfcf;
 }
 
 /********************** Home **********************/
