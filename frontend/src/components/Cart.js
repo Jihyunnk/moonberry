@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../store/cart';
 
 function Cart() {
+  const navigate = useNavigate();
   const params = useParams();
   const { id: productId } = params;
+
+  const session = useSelector((state) => state.session);
+  const { userInfo } = session;
 
   const { search } = useLocation();
   const quantityInURL = new URLSearchParams(search).get('quantity');
@@ -31,6 +35,14 @@ function Cart() {
 
   const handleClick = (id) => {
     dispatch(removeFromCart(id));
+  };
+
+  const checkout = () => {
+    if (!userInfo) {
+      navigate('/login');
+    } else {
+      navigate('/checkout');
+    }
   };
 
   return (
@@ -118,6 +130,7 @@ function Cart() {
               <li>
                 <button
                   type="button"
+                  onClick={checkout}
                   className="primary"
                   disabled={cartItems.length === 0}
                 >
