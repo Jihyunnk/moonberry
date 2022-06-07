@@ -38,7 +38,25 @@ function Cart() {
                   <div className="min-25">
                     <Link to={`/products/${item.product}`}>{item.name}</Link>
                   </div>
-                  <div>${item.price.toFixed(2)}</div>
+                  <div className="row">
+                    <div>
+                      <select
+                        value={item.quantity}
+                        onChange={(e) =>
+                          dispatch(
+                            addToCart(item.product, Number(e.target.value))
+                          )
+                        }
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
+                    <div>${item.price.toFixed(2)}</div>
+                  </div>
                 </div>
               </li>
             ))}
