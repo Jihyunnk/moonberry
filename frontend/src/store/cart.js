@@ -1,6 +1,7 @@
 import Axios from 'axios';
 
 const ADD_TO_CART = 'ADD_TO_CART';
+const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 
 const _addToCart = (data, quantity) => {
   return {
@@ -16,6 +17,13 @@ const _addToCart = (data, quantity) => {
   };
 };
 
+const _removeFromCart = (productId) => {
+  return {
+    type: REMOVE_FROM_CART,
+    payload: productId,
+  };
+};
+
 export const addToCart =
   (productId, quantity) => async (dispatch, getState) => {
     const { data } = await Axios.get(`/api/products/${productId}`);
@@ -25,6 +33,11 @@ export const addToCart =
       JSON.stringify(getState().cart.cartItems)
     );
   };
+
+export const removeFromCart = (productId) => async (dispatch, getState) => {
+  dispatch(_removeFromCart(productId));
+  localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
+};
 
 const initialState = { cartItems: [] };
 
@@ -43,6 +56,11 @@ export const cartReducer = (state = initialState, action) => {
       } else {
         return { ...state, cartItems: [...state.cartItems, item] };
       }
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((x) => x.product !== action.payload),
+      };
     default:
       return state;
   }
