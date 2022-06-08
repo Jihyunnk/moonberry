@@ -48,124 +48,130 @@ function Checkout() {
 
   return (
     <div>
+      <ul>
+        <li>
+          <div className="card card-body">
+            <form className="form">
+              <div>
+                <h2>Shipping Address</h2>
+              </div>
+              <div>
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="address">Address</label>
+                <input
+                  type="text"
+                  id="address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  required
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="city">City</label>
+                <input
+                  type="text"
+                  id="city"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  required
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="postalCode">Postal Code</label>
+                <input
+                  type="text"
+                  id="postalCode"
+                  value={postalCode}
+                  onChange={(e) => setPostalCode(e.target.value)}
+                  required
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="country">Country</label>
+                <input
+                  type="text"
+                  id="country"
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                  required
+                ></input>
+              </div>
+            </form>
+          </div>
+        </li>
+        <li>
+          <div className="card card-body">
+            <form className="form">
+              <div>
+                <h1>Payment</h1>
+              </div>
+              <div>
+                <label htmlFor="fullName">Name on Card</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  required
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="creditCard">Credit Card Number</label>
+                <input
+                  type="text"
+                  id="creditCard"
+                  value={creditCard}
+                  onChange={(e) => setCreditCard(e.target.value)}
+                  required
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="expiration">Expiration</label>
+                <input
+                  type="text"
+                  id="expiration"
+                  value={expiration}
+                  onChange={(e) => setExpiration(e.target.value)}
+                  required
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="CVV">CVV</label>
+                <input
+                  type="text"
+                  id="CVV"
+                  value={CVV}
+                  onChange={(e) => setCVV(e.target.value)}
+                  required
+                ></input>
+              </div>
+            </form>
+          </div>
+        </li>
+      </ul>
       <div>
-        <form className="form">
-          <div>
-            <h2>Shipping Address</h2>
-          </div>
-          <div>
-            <label htmlFor="firstName">First Name</label>
-            <input
-              type="text"
-              id="firstName"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            ></input>
-          </div>
-          <div>
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              type="text"
-              id="lastName"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-            ></input>
-          </div>
-          <div>
-            <label htmlFor="address">Address</label>
-            <input
-              type="text"
-              id="address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              required
-            ></input>
-          </div>
-          <div>
-            <label htmlFor="city">City</label>
-            <input
-              type="text"
-              id="city"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              required
-            ></input>
-          </div>
-          <div>
-            <label htmlFor="postalCode">Postal Code</label>
-            <input
-              type="text"
-              id="postalCode"
-              value={postalCode}
-              onChange={(e) => setPostalCode(e.target.value)}
-              required
-            ></input>
-          </div>
-          <div>
-            <label htmlFor="country">Country</label>
-            <input
-              type="text"
-              id="country"
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-              required
-            ></input>
-          </div>
-        </form>
-      </div>
-      <div>
-        <form className="form">
-          <div>
-            <h1>Payment</h1>
-          </div>
-          <div>
-            <label htmlFor="fullName">Name on Card</label>
-            <input
-              type="text"
-              id="fullName"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              required
-            ></input>
-          </div>
-          <div>
-            <label htmlFor="creditCard">Credit Card Number</label>
-            <input
-              type="text"
-              id="creditCard"
-              value={creditCard}
-              onChange={(e) => setCreditCard(e.target.value)}
-              required
-            ></input>
-          </div>
-          <div>
-            <label htmlFor="expiration">Expiration</label>
-            <input
-              type="text"
-              id="expiration"
-              value={expiration}
-              onChange={(e) => setExpiration(e.target.value)}
-              required
-            ></input>
-          </div>
-          <div>
-            <label htmlFor="CVV">CVV</label>
-            <input
-              type="text"
-              id="CVV"
-              value={CVV}
-              onChange={(e) => setCVV(e.target.value)}
-              required
-            ></input>
-          </div>
-        </form>
-        <div>
-          <button type="button" onClick={handleClick} className="primary">
-            SUBMIT
-          </button>
-        </div>
+        <button type="button" onClick={handleClick} className="primary">
+          SUBMIT
+        </button>
       </div>
     </div>
   );
