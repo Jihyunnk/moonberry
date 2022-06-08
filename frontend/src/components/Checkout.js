@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { saveShippingInfo } from '../store/cart';
+import { savePaymentInfo, saveShippingInfo } from '../store/cart';
 
 function Checkout() {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ function Checkout() {
   const { userInfo } = session;
 
   const cart = useSelector((state) => state.cart);
-  const { shippingInfo } = cart;
+  const { shippingInfo, paymentInfo } = cart;
 
   const [firstName, setFirstName] = useState(shippingInfo.firstName);
   const [lastName, setLastName] = useState(shippingInfo.lastName);
@@ -20,9 +20,9 @@ function Checkout() {
   const [postalCode, setPostalCode] = useState(shippingInfo.postalCode);
   const [country, setCountry] = useState(shippingInfo.country);
 
-  const [fullName, setFullName] = useState('');
-  const [creditCard, setCreditCard] = useState('');
-  const [expiration, setExpiration] = useState('');
+  const [fullName, setFullName] = useState(paymentInfo.fullName);
+  const [creditCard, setCreditCard] = useState(paymentInfo.creditCard);
+  const [expiration, setExpiration] = useState(paymentInfo.expiration);
   const [CVV, setCVV] = useState('');
 
   const handleClick = (e) => {
@@ -37,6 +37,7 @@ function Checkout() {
         country,
       })
     );
+    dispatch(savePaymentInfo({ fullName, creditCard, expiration }));
   };
 
   useEffect(() => {
@@ -160,11 +161,11 @@ function Checkout() {
             ></input>
           </div>
         </form>
-      </div>
-      <div>
-        <button type="button" onClick={handleClick} className="primary">
-          SUBMIT
-        </button>
+        <div>
+          <button type="button" onClick={handleClick} className="primary">
+            SUBMIT
+          </button>
+        </div>
       </div>
     </div>
   );
