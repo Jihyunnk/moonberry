@@ -178,11 +178,6 @@ function Checkout() {
               </div>
             </li>
           </ul>
-          {/* <div>
-        <button type="button" onClick={handleClick} className="primary">
-          SUBMIT
-        </button>
-      </div> */}
         </div>
         <div className="col-1 order-summary-wrapper">
           <div className="card card-body order-summary">
