@@ -18,6 +18,9 @@ const initialState = {
     shippingInfo: localStorage.getItem('shippingInfo')
       ? JSON.parse(localStorage.getItem('shippingInfo'))
       : {},
+    paymentInfo: localStorage.getItem('paymentInfo')
+      ? JSON.parse(localStorage.getItem('paymentInfo'))
+      : {},
   },
 };
 

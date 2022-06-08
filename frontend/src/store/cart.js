@@ -3,6 +3,7 @@ import Axios from 'axios';
 const ADD_TO_CART = 'ADD_TO_CART';
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 const SAVE_SHIPPING_INFO = 'SAVE_SHIPPING_INFO';
+const SAVE_PAYMENT_INFO = 'SAVE_PAYMENT_INFO';
 
 const _addToCart = (data, quantity) => {
   return {
@@ -48,6 +49,18 @@ export const saveShippingInfo = (data) => (dispatch) => {
   localStorage.setItem('shippingInfo', JSON.stringify(data));
 };
 
+export const savePaymentInfo = (data) => (dispatch) => {
+  dispatch({
+    type: SAVE_PAYMENT_INFO,
+    payload: {
+      fullName: data.fullName,
+      expiration: data.expiration,
+      creditCard: data.creditCard,
+    },
+  });
+  localStorage.setItem('paymentInfo', JSON.stringify(data));
+};
+
 const initialState = { cartItems: [] };
 
 export const cartReducer = (state = initialState, action) => {
@@ -74,6 +87,11 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         shippingInfo: action.payload,
+      };
+    case SAVE_PAYMENT_INFO:
+      return {
+        ...state,
+        paymentInfo: action.payload,
       };
     default:
       return state;
