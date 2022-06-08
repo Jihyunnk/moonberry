@@ -220,7 +220,7 @@ function Checkout() {
                 className="primary"
                 disabled={cartItems.length === 0}
               >
-                SUBMIT
+                PAY NOW
               </button>
             </li>
           </ul>
