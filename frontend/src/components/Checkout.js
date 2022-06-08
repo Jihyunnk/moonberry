@@ -10,12 +10,15 @@ function Checkout() {
   const session = useSelector((state) => state.session);
   const { userInfo } = session;
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [postalCode, setPostalCode] = useState('');
-  const [country, setCountry] = useState('');
+  const cart = useSelector((state) => state.cart);
+  const { shippingInfo } = cart;
+
+  const [firstName, setFirstName] = useState(shippingInfo.firstName);
+  const [lastName, setLastName] = useState(shippingInfo.lastName);
+  const [address, setAddress] = useState(shippingInfo.address);
+  const [city, setCity] = useState(shippingInfo.city);
+  const [postalCode, setPostalCode] = useState(shippingInfo.postalCode);
+  const [country, setCountry] = useState(shippingInfo.country);
 
   const handleClick = (e) => {
     e.preventDefault();
