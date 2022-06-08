@@ -56,8 +56,8 @@ function Checkout() {
 
   return (
     <div>
-      <div className="row">
-        <div className="col-2">
+      <div className="row checkout">
+        <div className="col-1">
           <ul>
             <li>
               <div className="card card-body">
