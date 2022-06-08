@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { saveShippingInfo } from '../store/cart';
 
 function Checkout() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const session = useSelector((state) => state.session);
+  const { userInfo } = session;
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [address, setAddress] = useState('');
@@ -24,6 +30,12 @@ function Checkout() {
       })
     );
   };
+
+  useEffect(() => {
+    if (!userInfo) {
+      navigate('/login');
+    }
+  }, [dispatch, navigate, userInfo]);
 
   return (
     <div>
