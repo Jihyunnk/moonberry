@@ -20,6 +20,11 @@ function Checkout() {
   const [postalCode, setPostalCode] = useState(shippingInfo.postalCode);
   const [country, setCountry] = useState(shippingInfo.country);
 
+  const [fullName, setFullName] = useState('');
+  const [creditCard, setCreditCard] = useState('');
+  const [expiration, setExpiration] = useState('');
+  const [CVV, setCVV] = useState('');
+
   const handleClick = (e) => {
     e.preventDefault();
     dispatch(
@@ -107,12 +112,59 @@ function Checkout() {
               required
             ></input>
           </div>
+        </form>
+      </div>
+      <div>
+        <form className="form">
           <div>
-            <button type="button" onClick={handleClick} className="primary">
-              SUBMIT
-            </button>
+            <h1>Payment</h1>
+          </div>
+          <div>
+            <label htmlFor="fullName">Name on Card</label>
+            <input
+              type="text"
+              id="fullName"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              required
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="creditCard">Credit Card Number</label>
+            <input
+              type="text"
+              id="creditCard"
+              value={creditCard}
+              onChange={(e) => setCreditCard(e.target.value)}
+              required
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="expiration">Expiration</label>
+            <input
+              type="text"
+              id="expiration"
+              value={expiration}
+              onChange={(e) => setExpiration(e.target.value)}
+              required
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="CVV">CVV</label>
+            <input
+              type="text"
+              id="CVV"
+              value={CVV}
+              onChange={(e) => setCVV(e.target.value)}
+              required
+            ></input>
           </div>
         </form>
+      </div>
+      <div>
+        <button type="button" onClick={handleClick} className="primary">
+          SUBMIT
+        </button>
       </div>
     </div>
   );
