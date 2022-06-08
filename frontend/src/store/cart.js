@@ -2,6 +2,7 @@ import Axios from 'axios';
 
 const ADD_TO_CART = 'ADD_TO_CART';
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+const SAVE_SHIPPING_INFO = 'SAVE_SHIPPING_INFO';
 
 const _addToCart = (data, quantity) => {
   return {
@@ -39,6 +40,14 @@ export const removeFromCart = (productId) => async (dispatch, getState) => {
   localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
 };
 
+export const saveShippingInfo = (data) => (dispatch) => {
+  dispatch({
+    type: SAVE_SHIPPING_INFO,
+    payload: data,
+  });
+  localStorage.setItem('shippingInfo', JSON.stringify(data));
+};
+
 const initialState = { cartItems: [] };
 
 export const cartReducer = (state = initialState, action) => {
@@ -60,6 +69,11 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartItems: state.cartItems.filter((x) => x.product !== action.payload),
+      };
+    case SAVE_SHIPPING_INFO:
+      return {
+        ...state,
+        shippingInfo: action.payload,
       };
     default:
       return state;

@@ -1,12 +1,29 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { saveShippingInfo } from '../store/cart';
 
 function Checkout() {
+  const dispatch = useDispatch();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('');
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(
+      saveShippingInfo({
+        firstName,
+        lastName,
+        address,
+        city,
+        postalCode,
+        country,
+      })
+    );
+  };
 
   return (
     <div>
@@ -74,6 +91,11 @@ function Checkout() {
               onChange={(e) => setCountry(e.target.value)}
               required
             ></input>
+          </div>
+          <div>
+            <button type="button" onClick={handleClick} className="primary">
+              SUBMIT
+            </button>
           </div>
         </form>
       </div>
