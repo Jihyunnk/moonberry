@@ -11,7 +11,7 @@ function Checkout() {
   return (
     <div>
       <div>
-        <form>
+        <form className="form">
           <div>
             <h2>Shipping Address</h2>
           </div>
