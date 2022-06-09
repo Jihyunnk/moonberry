@@ -301,3 +301,35 @@ button.shop {
 .checkout .order-summary-wrapper {
   margin-top: 2.5rem;
 }
+
+/********************** Confirmation **********************/
+.confirmation-wrapper {
+  padding: 0 15rem;
+}
+
+.confirmation-message {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: lighter;
+}
+
+.confirmation-card {
+  margin-top: 3rem;
+  border: 0.1rem #c9c7c7 solid;
+  border-radius: 0.5rem;
+}
+
+.confirmation-card > * {
+  margin: 1rem 3rem;
+}
+
+.confirmation-card p {
+  padding: 0.25rem;
+}
+
+.customer-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8rem;
+}

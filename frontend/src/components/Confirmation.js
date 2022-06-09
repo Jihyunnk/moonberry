@@ -6,16 +6,18 @@ function Confirmation() {
 
   return (
     <div>
-      <div>
-        <h1>Thank you for shopping with us!</h1>
-        <div className="card card-body">
+      <div className="confirmation-wrapper">
+        <h1 className="confirmation-message">
+          Thank you for shopping with us!
+        </h1>
+        <div className="card card-body confirmation-card">
           <h2>Order</h2>
           <p>Your order is confirmed.</p>
           <p>You'll receive an email when your order is ready.</p>
         </div>
-        <div className="card card-body">
+        <div className="card card-body confirmation-card">
           <h2>Customer Information</h2>
-          <div>
+          <div className="customer-info">
             <div>
               <p>Customer Name</p>
               <p>
