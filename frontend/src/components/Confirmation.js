@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 function Confirmation() {
   const cart = useSelector((state) => state.cart);
-  const { shippingInfo } = cart;
+  const { shippingInfo, cartItems } = cart;
 
   return (
     <div>
@@ -41,6 +41,24 @@ function Confirmation() {
               </p>
             </div>
           </div>
+        </div>
+        <div className="card card-body border confirmation-card">
+          <h2>Order Items</h2>
+          <ul>
+            {cartItems.map((item) => (
+              <li key={item.product}>
+                <div>
+                  <div className="row">
+                    <div className="row">
+                      <img src={item.image} alt={item.name} className="small" />
+                      <p>{item.name}</p>
+                    </div>
+                    <p>${item.price.toFixed(2)}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
