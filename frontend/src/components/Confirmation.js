@@ -10,7 +10,6 @@ function Confirmation() {
 
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order } = orderDetails;
-  console.log('order: ', order);
 
   const dispatch = useDispatch();
   useEffect(() => {

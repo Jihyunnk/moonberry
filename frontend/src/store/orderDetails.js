@@ -11,7 +11,6 @@ export const getOrder = (orderId) => async (dispatch, getState) => {
       Authorization: `Bearer ${userInfo.token}`,
     },
   });
-  console.log('DATA: ', data);
   dispatch({ type: GET_ORDER, payload: data });
 };
 
