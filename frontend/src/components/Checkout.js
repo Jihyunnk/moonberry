@@ -46,6 +46,7 @@ function Checkout() {
       })
     );
     dispatch(savePaymentInfo({ fullName, creditCard, expiration }));
+    navigate('/confirmation');
   };
 
   useEffect(() => {
