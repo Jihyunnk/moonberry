@@ -185,7 +185,16 @@ function Checkout() {
               <li>
                 <p>Order Summary</p>
               </li>
+              {cartItems.map((item) => (
+                <li key={item.product} className="row">
+                  <div>
+                    {item.name} ({item.quantity})
+                  </div>
+                  <div>${item.price.toFixed(2)}</div>
+                </li>
+              ))}
               <li>
+                <hr />
                 <div className="row">
                   <div>Subtotal</div>
                   <div>${itemsPrice.toFixed(2)}</div>
