@@ -212,10 +212,6 @@ button.shop {
   border: none;
 }
 
-button.shop {
-  background-color: #cfcfcf;
-}
-
 /********************** Home **********************/
 .home {
   background-image: url('https://images.unsplash.com/photo-1623660045892-c9271bb7068c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1548&q=80');
@@ -254,8 +250,10 @@ button.shop {
 }
 
 .empty-cart {
-  height: 250px;
-  overflow: hidden;
+  /* height: 250px;
+  overflow: hidden; */
+  margin-left: 55px;
+  filter: brightness(95%);
 }
 
 .cart-message {

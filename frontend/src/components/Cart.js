@@ -53,7 +53,7 @@ function Cart() {
       {cartItems.length === 0 ? (
         <div className="card card-body cart-wrapper">
           <div className="empty-cart">
-            <img src="/empty-cart.webp" alt="empty-cart" />
+            <img src="/empty-cart.png" alt="empty-cart" />
           </div>
           <div className="cart-message">
             <h2>Your cart is empty!</h2>
