@@ -213,9 +213,14 @@ function Checkout() {
                 </div>
               </li>
               <li>
+                <hr />
                 <div className="row">
-                  <div className="total">Total</div>
-                  <div>${totalPrice.toFixed(2)}</div>
+                  <div className="total">
+                    <strong>Total</strong>
+                  </div>
+                  <div>
+                    <strong>${totalPrice.toFixed(2)}</strong>
+                  </div>
                 </div>
               </li>
               <li>
