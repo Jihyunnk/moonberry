@@ -30,12 +30,12 @@ function Checkout() {
   const [CVV, setCVV] = useState('');
 
   const toPrice = (num) => Number(num.toFixed(2));
-  const itemsPrice = toPrice(
+  cart.itemsPrice = toPrice(
     cartItems.reduce((a, c) => a + c.price * c.quantity, 0)
   );
-  const shippingPrice = itemsPrice > 100 ? toPrice(0) : 14.25;
-  const taxPrice = toPrice(0.15 * itemsPrice);
-  const totalPrice = itemsPrice + shippingPrice + taxPrice;
+  cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : 14.25;
+  cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
+  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -204,19 +204,19 @@ function Checkout() {
                 <hr />
                 <div className="row">
                   <div>Subtotal</div>
-                  <div>${itemsPrice.toFixed(2)}</div>
+                  <div>${cart.itemsPrice.toFixed(2)}</div>
                 </div>
               </li>
               <li>
                 <div className="row">
                   <div>Shipping</div>
-                  <div>${shippingPrice.toFixed(2)}</div>
+                  <div>${cart.shippingPrice.toFixed(2)}</div>
                 </div>
               </li>
               <li>
                 <div className="row">
                   <div>Tax</div>
-                  <div>${taxPrice.toFixed(2)}</div>
+                  <div>${cart.taxPrice.toFixed(2)}</div>
                 </div>
               </li>
               <li>
@@ -226,7 +226,7 @@ function Checkout() {
                     <strong>Total</strong>
                   </div>
                   <div>
-                    <strong>${totalPrice.toFixed(2)}</strong>
+                    <strong>${cart.totalPrice.toFixed(2)}</strong>
                   </div>
                 </div>
               </li>
