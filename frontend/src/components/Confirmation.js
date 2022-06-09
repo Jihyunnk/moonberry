@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getOrder } from '../store/orderDetails';
+
 function Confirmation() {
-  // const cart = useSelector((state) => state.cart);
-  // const { shippingInfo, cartItems } = cart;
   const params = useParams();
   const { id: orderId } = params;
 
