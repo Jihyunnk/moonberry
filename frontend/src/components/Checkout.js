@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { savePaymentInfo, saveShippingInfo } from '../store/cart';
-import { setOrder } from '../store/order';
+import { RESET_ORDER, setOrder } from '../store/order';
 
 function Checkout() {
   const navigate = useNavigate();
@@ -58,6 +58,7 @@ function Checkout() {
       navigate('/login');
     } else if (success) {
       navigate(`/confirmation/${order._id}`);
+      dispatch({ type: RESET_ORDER });
     }
   }, [dispatch, navigate, userInfo, success, order]);
 
