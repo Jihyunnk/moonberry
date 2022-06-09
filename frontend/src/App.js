@@ -26,7 +26,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/cart/:id" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/confirmation" element={<Confirmation />} />
+            <Route path="/confirmation/:id" element={<Confirmation />} />
           </Routes>
         </main>
       </div>

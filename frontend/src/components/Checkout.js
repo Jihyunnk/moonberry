@@ -15,7 +15,7 @@ function Checkout() {
   const { shippingInfo, paymentInfo, cartItems } = cart;
 
   const placeOrder = useSelector((state) => state.placeOrder);
-  const { success } = placeOrder;
+  const { success, order } = placeOrder;
 
   const [firstName, setFirstName] = useState(shippingInfo.firstName);
   const [lastName, setLastName] = useState(shippingInfo.lastName);
@@ -57,9 +57,9 @@ function Checkout() {
     if (!userInfo) {
       navigate('/login');
     } else if (success) {
-      navigate('/confirmation');
+      navigate(`/confirmation/${order._id}`);
     }
-  }, [dispatch, navigate, userInfo, success]);
+  }, [dispatch, navigate, userInfo, success, order]);
 
   return (
     <div>
