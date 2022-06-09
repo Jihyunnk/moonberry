@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { savePaymentInfo, saveShippingInfo } from '../store/cart';
+import { setOrder } from '../store/order';
 
 function Checkout() {
   const navigate = useNavigate();
@@ -12,6 +13,9 @@ function Checkout() {
 
   const cart = useSelector((state) => state.cart);
   const { shippingInfo, paymentInfo, cartItems } = cart;
+
+  const placeOrder = useSelector((state) => state.placeOrder);
+  const { success } = placeOrder;
 
   const [firstName, setFirstName] = useState(shippingInfo.firstName);
   const [lastName, setLastName] = useState(shippingInfo.lastName);
@@ -46,14 +50,16 @@ function Checkout() {
       })
     );
     dispatch(savePaymentInfo({ fullName, creditCard, expiration }));
-    navigate('/confirmation');
+    dispatch(setOrder({ ...cart, orderItems: cartItems }));
   };
 
   useEffect(() => {
     if (!userInfo) {
       navigate('/login');
+    } else if (success) {
+      navigate('/confirmation');
     }
-  }, [dispatch, navigate, userInfo]);
+  }, [dispatch, navigate, userInfo, success]);
 
   return (
     <div>
