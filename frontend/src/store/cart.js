@@ -2,6 +2,7 @@ import Axios from 'axios';
 
 const ADD_TO_CART = 'ADD_TO_CART';
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+export const EMPTY_CART = 'EMPTY_CART';
 const SAVE_SHIPPING_INFO = 'SAVE_SHIPPING_INFO';
 const SAVE_PAYMENT_INFO = 'SAVE_PAYMENT_INFO';
 
@@ -83,6 +84,8 @@ export const cartReducer = (state = initialState, action) => {
         ...state,
         cartItems: state.cartItems.filter((x) => x.product !== action.payload),
       };
+    case EMPTY_CART:
+      return { ...state, cartItems: [] };
     case SAVE_SHIPPING_INFO:
       return {
         ...state,
