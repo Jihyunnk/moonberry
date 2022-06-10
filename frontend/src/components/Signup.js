@@ -25,7 +25,15 @@ function Signup() {
           error.response && error.response.data.message
             ? error.response.data.message
             : error.message;
-        setError(message);
+        if (
+          message.includes(
+            'E11000 duplicate key error collection: moonberry.users index: email_1 dup key'
+          )
+        ) {
+          setError('The email address you specified is already in use.');
+        } else {
+          setError(message);
+        }
       });
     }
   };
