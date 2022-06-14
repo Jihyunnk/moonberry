@@ -28,7 +28,8 @@ function Checkout() {
   const [creditCard, setCreditCard] = useState(paymentInfo.creditCard);
   const [expiration, setExpiration] = useState(paymentInfo.expiration);
   const [CVV, setCVV] = useState('');
-  const [error, setError] = useState([]);
+  const [shippingError, setShippingError] = useState([]);
+  const [paymentError, setPaymentError] = useState([]);
 
   const toPrice = (num) => Number(num.toFixed(2));
   cart.itemsPrice = toPrice(
@@ -57,7 +58,22 @@ function Checkout() {
           ? error.response.data.message
           : error.message;
 
-      setError(message);
+      let str = message.slice(25);
+      const myRe = /\w+(?=`\s+is)/g;
+      const arr = [...str.matchAll(myRe)].map((item) => item[0]);
+      const shipRegExp = /(?<=shippingInfo.).*?(?=:|`|\s)/g;
+      const payRegExp = /(?<=paymentInfo.).*?(?=:|`|\s)/g;
+
+      const ship = [...str.matchAll(shipRegExp)].map((item) => item[0]);
+      const pay = [...str.matchAll(payRegExp)].map((item) => item[0]);
+
+      for (let i = 0; i < arr.length; i++) {
+        if (message.includes(arr[i]) && ship.includes(arr[i])) {
+          setShippingError(arr[i]);
+        } else if (message.includes(arr[i]) && pay.includes(arr[i])) {
+          setPaymentError(arr[i]);
+        }
+      }
     });
   };
 
@@ -81,7 +97,7 @@ function Checkout() {
                   <div>
                     <h2>Shipping Address</h2>
                   </div>
-                  {error && <div>{error}</div>}
+                  {shippingError && <div>{shippingError}</div>}
                   <div>
                     <label htmlFor="firstName">First Name</label>
                     <input
@@ -151,6 +167,8 @@ function Checkout() {
                   <div>
                     <h1>Payment</h1>
                   </div>
+                  {paymentError && <div>{paymentError}</div>}
+
                   <div>
                     <label htmlFor="fullName">Name on Card</label>
                     <input
