@@ -28,6 +28,7 @@ function Checkout() {
   const [creditCard, setCreditCard] = useState(paymentInfo.creditCard);
   const [expiration, setExpiration] = useState(paymentInfo.expiration);
   const [CVV, setCVV] = useState('');
+  const [error, setError] = useState([]);
 
   const toPrice = (num) => Number(num.toFixed(2));
   cart.itemsPrice = toPrice(
@@ -50,7 +51,14 @@ function Checkout() {
       })
     );
     dispatch(savePaymentInfo({ fullName, creditCard, expiration }));
-    dispatch(setOrder({ ...cart, orderItems: cartItems }));
+    dispatch(setOrder({ ...cart, orderItems: cartItems })).catch((error) => {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
+
+      setError(message);
+    });
   };
 
   useEffect(() => {
@@ -73,6 +81,7 @@ function Checkout() {
                   <div>
                     <h2>Shipping Address</h2>
                   </div>
+                  {error && <div>{error}</div>}
                   <div>
                     <label htmlFor="firstName">First Name</label>
                     <input
