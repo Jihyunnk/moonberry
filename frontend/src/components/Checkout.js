@@ -69,9 +69,9 @@ function Checkout() {
 
       for (let i = 0; i < arr.length; i++) {
         if (message.includes(arr[i]) && ship.includes(arr[i])) {
-          setShippingError(arr[i]);
+          setShippingError(`Please enter ${arr[i]}`);
         } else if (message.includes(arr[i]) && pay.includes(arr[i])) {
-          setPaymentError(arr[i]);
+          setPaymentError(`Please enter ${arr[i]}`);
         }
       }
     });
@@ -168,7 +168,6 @@ function Checkout() {
                     <h1>Payment</h1>
                   </div>
                   {paymentError && <div>{paymentError}</div>}
-
                   <div>
                     <label htmlFor="fullName">Name on Card</label>
                     <input
