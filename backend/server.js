@@ -13,7 +13,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/moonberry');
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
