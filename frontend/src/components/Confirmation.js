@@ -72,7 +72,7 @@ function Confirmation() {
                           />
                           <p>{item.name}</p>
                         </div>
-                        <p>${item.price.toFixed(2)}</p>
+                        <p>${(item.price * item.quantity).toFixed(2)}</p>
                       </div>
                     </div>
                   </li>
