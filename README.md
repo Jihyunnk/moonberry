@@ -6,7 +6,7 @@ All features update the page the user is on without a refresh of the page throug
 
 ## Live Site
 
-[https://moon-berry.herokuapp.com/](https://moon-berry.herokuapp.com/)
+[https://moonberry.fly.dev/](https://moonberry.fly.dev/)
 
 ## Tech Stack
 
